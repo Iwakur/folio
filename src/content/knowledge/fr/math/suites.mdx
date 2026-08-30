@@ -1,71 +1,109 @@
 ---
-title: Suites
-order: 10
-description: Introduction aux suites arithmétiques et géométriques.
+title: Suites numériques
+order: 30
+description: Notation, suites arithmétiques, géométriques et polynomiales.
 ---
 
-# Suites
+# Suites numériques
 
-Une suite numérique est une succession ordonnée de nombres. La position d'un
-terme est son **rang**; sa valeur est notée $u_n$.
+Une suite numérique est une liste ordonnée de nombres. Ici, le premier terme
+est $u_1$ et les rangs commencent à $1$.
 
 <Grid>
-  <Definition title="Suite numérique">
-    Une suite associe à chaque entier $n$ un nombre $u_n$.
+  <Definition title="Notation">
+    - $n$ est le **rang** et $u_n$ la valeur du terme de rang $n$.
+    - La première différence est $\Delta u_n=u_{n+1}-u_n$;
+    - la deuxième est $\Delta^2u_n=\Delta(\Delta u_n)$.
   </Definition>
 
-  <Note title="Lire la notation">
-    Dans $u_n$, $n$ est le rang et $u_n$ est la valeur du terme.
+  <Note title="Deux manières de définir une suite">
+    Une **formule explicite** donne directement $u_n$ en fonction de $n$.
+    Une **relation de récurrence** calcule $u_{n+1}$ à partir de $u_n$.
   </Note>
+
+  <Warning title="Convention de départ">
+    Certains cours commencent à $u_0$. Il faut alors adapter les formules :
+    $u_n=u_0+nr$ et $u_n=u_0q^n$.
+  </Warning>
 </Grid>
 
-## Suites arithmétiques
 
 <Grid>
-  <Definition>
-    Une suite est arithmétique lorsque l'on ajoute toujours la même raison $r$.
+## Suiwtes arithmétiques et géométriques
+
+  <Definition title="Suite arithmétique">
+    La différence entre deux termes consécutifs est constante :
+    $u_{n+1}-u_n=r$.
   </Definition>
 
-  <Formula wide>
-    $$u_{n+1}=u_n+r \qquad u_n=u_0+nr$$
+  <Formula title="Formules arithmétiques">
+    $$u_{n+1}=u_n+r$$
+    $$u_n=u_1+(n-1)r=an+b$$
+    avec $a=r$ et $b=u_1-r$.
   </Formula>
 
-  <Example title="Avec une raison positive">
-    Si $u_0=3$ et $r=4$, la suite commence par
-    $3, 7, 11, 15, 19, \ldots$
+  <Example title="Différence constante">
+    Pour $3,7,11,15,19,\ldots$, on a $r=4$ et $u_1=3$, donc
+    $$u_n=3+4(n-1)=4n-1.$$
   </Example>
 
+  <Definition title="Suite géométrique">
+    Le quotient de deux termes consécutifs est constant :
+    $\frac{u_{n+1}}{u_n}=q$, lorsque $u_n\ne0$.
+  </Definition>
+
+  <Formula title="Formules géométriques">
+    $$u_{n+1}=qu_n$$
+    $$u_n=u_1q^{n-1}$$
+  </Formula>
+
+  <Example title="Rapport constant">
+    Pour $3,6,12,24,48,\ldots$, on a $q=2$, donc
+    $$u_n=3\cdot2^{n-1}.$$
+  </Example>
+</Grid>
+
+## Différences constantes et degré
+
+Pour une suite polynomiale, la première ligne de différences qui devient
+constante indique le degré du polynôme.
+<Grid>
+
+| Différence constante | Type | Forme générale |
+| --- | --- | --- |
+| valeurs $u_n$ | constante, degré 0 | $u_n=c$ |
+| $\Delta u_n$ | linéaire, degré 1 | $u_n=an+b$ |
+| $\Delta^2u_n$ | quadratique, degré 2 | $u_n=an^2+bn+c$ |
+| $\Delta^3u_n$ | cubique, degré 3 | $u_n=an^3+bn^2+cn+d$ |
+| $\Delta^ku_n$ | polynomiale, degré $k$ | $u_n=a_kn^k+\cdots+a_0$ |
+
+  <Example title="Carrés parfaits">
+    Pour $1,4,9,16,25,\ldots$, les premières différences sont
+    $3,5,7,9,\ldots$ et les deuxièmes différences valent toujours $2$.
+    La suite est quadratique : $u_n=n^2$.
+  </Example>
+
+  <Formula title="Coefficient quadratique">
+    Si $u_n=an^2+bn+c$, alors
+    $$
+    \Delta^2u_n=2a \qquad\Longrightarrow\qquad
+    a=\frac{\Delta^2u_n}{2}.
+    $$
+    Deux autres termes permettent ensuite de déterminer $b$ et $c$.
+  </Formula>
+
   <CommonMistake>
-    Ne pas confondre le rang $n$ avec la valeur $u_n$.
+    La méthode des différences constantes ne reconnaît pas une suite
+    géométrique : ses différences ne deviennent pas constantes indéfiniment.
+    Il faut tester les quotients séparément.
   </CommonMistake>
 </Grid>
 
-<Arrow from="Ajouter r" to="Terme suivant" />
-
-## Suites géométriques
-
-<Grid>
-  <Definition>
-    Une suite est géométrique lorsque l'on multiplie toujours par la même
-    raison $q$.
-  </Definition>
-
-  <Formula wide>
-    $$u_{n+1}=q u_n \qquad u_n=u_0q^n$$
-  </Formula>
-</Grid>
-
-<Mermaid chart={`flowchart LR
-  A[Identifier deux termes] --> B{Même différence ?}
-  B -->|Oui| C[Suite arithmétique]
-  B -->|Non| D{Même quotient ?}
-  D -->|Oui| E[Suite géométrique]
-  D -->|Non| F[Autre modèle]`} />
-
 <Summary>
 
-- **Arithmétique** → addition constante.
-- **Géométrique** → multiplication constante.
-- Une formule explicite permet de calculer directement le terme de rang $n$.
+1. Chercher une différence constante : elle indique une suite polynomiale.
+2. Sinon, chercher un rapport constant : il indique une suite géométrique.
+3. Une formule explicite donne directement $u_n$; une récurrence utilise les
+   termes précédents.
 
 </Summary>

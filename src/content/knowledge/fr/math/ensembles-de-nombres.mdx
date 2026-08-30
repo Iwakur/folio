@@ -1,0 +1,56 @@
+---
+title: Ensembles de nombres
+order: 10
+description: Les principaux ensembles numériques et leurs inclusions.
+---
+
+# Ensembles de nombres
+
+Les ensembles numériques classent les nombres selon leurs propriétés.
+
+| Symbole | Nom | Exemples |
+| --- | --- | --- |
+| $\mathbb N$ | naturels | $0,1,2,3,\ldots$ |
+| $\mathbb Z$ | entiers | $\ldots,-2,-1,0,1,2,\ldots$ |
+| $\mathbb D$ | décimaux à écriture finie | $0{,}5$; $-2{,}75$; $10{,}01$ |
+| $\mathbb Q$ | rationnels | $\frac13$; $-\frac72$; $0{,}5$ |
+| $\mathbb R$ | réels | $\pi$; $\sqrt2$; $\frac13$; $-5$ |
+| $\mathbb C$ | complexes | $2+3i$ |
+
+<Formula title="Inclusions" wide>
+
+  $$
+  \mathbb N\subset\mathbb Z\subset\mathbb D\subset
+  \mathbb Q\subset\mathbb R\subset\mathbb C
+  $$
+
+</Formula>
+
+<Grid>
+  <Definition title="Appartenance">
+    $x\in A$ signifie que le nombre $x$ est un **élément** de l'ensemble $A$.
+    Par exemple, $5\in\mathbb N$.
+  </Definition>
+
+  <Definition title="Inclusion">
+    $A\subset B$ signifie que chaque élément de l'ensemble $A$ appartient
+    aussi à l'ensemble $B$. Par exemple, $\mathbb N\subset\mathbb Z$.
+  </Definition>
+
+  <CommonMistake title="Élément ou ensemble ?">
+    On écrit **nombre $\in$ ensemble**, mais **ensemble $\subset$ ensemble**.
+    Ainsi, $5\in\mathbb N$ et $\mathbb N\subset\mathbb Z$.
+  </CommonMistake>
+
+  <Note title="Deux conventions à vérifier">
+    Ici, $0\in\mathbb N$. Certains cours commencent les naturels à $1$.
+    De plus, $\mathbb D$ est une notation surtout employée dans les programmes
+    francophones; elle n'est pas universelle.
+  </Note>
+</Grid>
+
+<Summary>
+  À mémoriser : la chaîne d'inclusions, puis la différence entre
+  $\in$ (un élément appartient à un ensemble) et $\subset$ (un ensemble est
+  inclus dans un autre).
+</Summary>
