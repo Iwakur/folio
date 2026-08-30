@@ -1,0 +1,5 @@
+---
+import Card from './Card.astro';
+const { title, wide = true } = Astro.props;
+---
+<Card kind="summary" label="Summary" title={title} wide={wide}><slot /></Card>

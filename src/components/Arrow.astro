@@ -1,0 +1,11 @@
+---
+interface Props { from: string; to: string }
+const { from, to } = Astro.props;
+---
+<figure class="arrow" aria-label={`${from} leads to ${to}`}>
+  <span>{from}</span>
+  <svg viewBox="0 0 160 24" role="img" aria-hidden="true">
+    <path d="M2 12h150m-10-9 10 9-10 9" />
+  </svg>
+  <span>{to}</span>
+</figure>

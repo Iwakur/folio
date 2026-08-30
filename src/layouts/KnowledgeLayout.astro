@@ -1,0 +1,76 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+import SidebarTree from '../components/SidebarTree.astro';
+import type { NavigationItem } from '../lib/navigation';
+
+interface Props {
+  title: string;
+  language: string;
+  languages: string[];
+  navigation: NavigationItem[];
+  currentPath: string;
+}
+const { title, language, languages, navigation, currentPath } = Astro.props;
+---
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} · Folio</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('folio-theme');
+        const theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Folio</a>
+      <div class="header-actions">
+        <nav aria-label="Languages">
+          {languages.map((code) => <a class:list={{ active: code === language }} href={`/${code}/`}>{code.toUpperCase()}</a>)}
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="shell">
+      <aside class="sidebar"><SidebarTree items={navigation} currentPath={currentPath} /></aside>
+      <main class="knowledge"><slot /></main>
+    </div>
+  </body>
+</html>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+
+  function updateToggle(theme: 'light' | 'dark') {
+    if (!toggle) return;
+    const target = theme === 'light' ? 'dark' : 'light';
+    toggle.setAttribute('aria-label', `Switch to ${target} theme`);
+    toggle.title = `Switch to ${target} theme`;
+  }
+
+  if (toggle) {
+    updateToggle(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    toggle.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem('folio-theme', theme);
+      updateToggle(theme);
+    });
+  }
+</script>

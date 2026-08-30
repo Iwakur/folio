@@ -1,0 +1,11 @@
+---
+interface Props { kind: string; label: string; title?: string; wide?: boolean }
+const { kind, label, title, wide = false } = Astro.props;
+---
+<aside class:list={['knowledge-card', `knowledge-card--${kind}`, { 'is-wide': wide }]}>
+  <header>
+    <span class="knowledge-card__label">{label}</span>
+    {title && <h3>{title}</h3>}
+  </header>
+  <div class="knowledge-card__content"><slot /></div>
+</aside>

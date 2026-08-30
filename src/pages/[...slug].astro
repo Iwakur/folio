@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import KnowledgeLayout from '../layouts/KnowledgeLayout.astro';
+import { buildNavigation } from '../lib/navigation';
+import * as components from '../components';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('knowledge');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry, entries } }));
+}
+
+const { entry, entries } = Astro.props;
+const { Content } = await render(entry);
+const language = entry.id.split('/')[0];
+const languages = [...new Set(entries.map(({ id }) => id.split('/')[0]))].sort();
+const navigation = buildNavigation(entries, language);
+const title = entry.data.title ?? entry.id.split('/').at(-1) ?? 'Knowledge';
+const currentPath = `/${entry.id}/`;
+---
+<KnowledgeLayout {title} {language} {languages} {navigation} {currentPath}>
+  <article><Content components={components} /></article>
+</KnowledgeLayout>

@@ -1,0 +1,7 @@
+---
+import { getCollection } from 'astro:content';
+const entries = await getCollection('knowledge');
+const first = entries.sort((a, b) => a.data.order - b.data.order)[0];
+---
+<!doctype html>
+<html><head><meta charset="utf-8" /><meta http-equiv="refresh" content={`0;url=/${first?.id ?? ''}/`} /></head></html>

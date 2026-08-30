@@ -1,0 +1,16 @@
+---
+interface Props { chart: string; label?: string }
+const { chart, label = 'Diagram' } = Astro.props;
+---
+<figure class="diagram" aria-label={label}>
+  <pre class="mermaid">{chart}</pre>
+</figure>
+<script>
+  const diagrams = document.querySelectorAll<HTMLElement>('.mermaid:not([data-processed])');
+  if (diagrams.length > 0) {
+    import('mermaid').then(({ default: mermaid }) => {
+      mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'strict' });
+      return mermaid.run({ nodes: Array.from(diagrams) });
+    });
+  }
+</script>

@@ -1,0 +1,15 @@
+---
+import type { NavigationItem } from '../lib/navigation';
+interface Props { items: NavigationItem[]; currentPath: string }
+const { items, currentPath } = Astro.props;
+---
+<ul class="tree">
+  {items.map((item) => (
+    <li>
+      {item.path
+        ? <a href={item.path} aria-current={item.path === currentPath ? 'page' : undefined}>{item.label}</a>
+        : <span>{item.label}</span>}
+      {item.children.length > 0 && <Astro.self items={item.children} currentPath={currentPath} />}
+    </li>
+  ))}
+</ul>

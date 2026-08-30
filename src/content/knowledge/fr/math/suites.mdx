@@ -1,0 +1,71 @@
+---
+title: Suites
+order: 10
+description: Introduction aux suites arithmétiques et géométriques.
+---
+
+# Suites
+
+Une suite numérique est une succession ordonnée de nombres. La position d'un
+terme est son **rang**; sa valeur est notée $u_n$.
+
+<Grid>
+  <Definition title="Suite numérique">
+    Une suite associe à chaque entier $n$ un nombre $u_n$.
+  </Definition>
+
+  <Note title="Lire la notation">
+    Dans $u_n$, $n$ est le rang et $u_n$ est la valeur du terme.
+  </Note>
+</Grid>
+
+## Suites arithmétiques
+
+<Grid>
+  <Definition>
+    Une suite est arithmétique lorsque l'on ajoute toujours la même raison $r$.
+  </Definition>
+
+  <Formula wide>
+    $$u_{n+1}=u_n+r \qquad u_n=u_0+nr$$
+  </Formula>
+
+  <Example title="Avec une raison positive">
+    Si $u_0=3$ et $r=4$, la suite commence par
+    $3, 7, 11, 15, 19, \ldots$
+  </Example>
+
+  <CommonMistake>
+    Ne pas confondre le rang $n$ avec la valeur $u_n$.
+  </CommonMistake>
+</Grid>
+
+<Arrow from="Ajouter r" to="Terme suivant" />
+
+## Suites géométriques
+
+<Grid>
+  <Definition>
+    Une suite est géométrique lorsque l'on multiplie toujours par la même
+    raison $q$.
+  </Definition>
+
+  <Formula wide>
+    $$u_{n+1}=q u_n \qquad u_n=u_0q^n$$
+  </Formula>
+</Grid>
+
+<Mermaid chart={`flowchart LR
+  A[Identifier deux termes] --> B{Même différence ?}
+  B -->|Oui| C[Suite arithmétique]
+  B -->|Non| D{Même quotient ?}
+  D -->|Oui| E[Suite géométrique]
+  D -->|Non| F[Autre modèle]`} />
+
+<Summary>
+
+- **Arithmétique** → addition constante.
+- **Géométrique** → multiplication constante.
+- Une formule explicite permet de calculer directement le terme de rang $n$.
+
+</Summary>
