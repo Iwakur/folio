@@ -302,6 +302,7 @@ Initial useful set:
 Definition
 Formula
 Example
+DataTable
 CommonMistake
 Warning
 Note
@@ -565,15 +566,15 @@ This avoids making long explanations awkward.
 
 ## 13. Grid API
 
-A minimal possible API:
+A minimal API:
 
 ```mdx
-<Grid>
+<Grid title="Section title">
   <Definition>
     ...
   </Definition>
 
-  <Formula span="full">
+  <Formula wide>
     ...
   </Formula>
 
@@ -587,17 +588,20 @@ A minimal possible API:
 </Grid>
 ```
 
-Or alternatively:
+`Grid` may have a semantic section title. The engine owns its heading level;
+notes do not expose or manually select it.
+
+Tables use ordinary Markdown inside a semantic table card:
 
 ```mdx
-<Grid>
-  <GridItem span={6}>
-    <Definition>...</Definition>
-  </GridItem>
+<Grid title="Comparison">
+  <DataTable title="Results" wide compact lines="rows">
 
-  <GridItem span={6}>
-    <Example>...</Example>
-  </GridItem>
+    | Item | Value |
+    | --- | --- |
+    | A | 1 |
+
+  </DataTable>
 </Grid>
 ```
 
@@ -607,19 +611,17 @@ Avoid making authors manually manage a 12-column grid unless necessary.
 
 Good defaults are more important than maximum configuration.
 
-Potential semantic sizing API:
+Semantic sizing uses only `wide`:
 
 ```mdx
 <Formula wide>
 ...
 </Formula>
 
-<Example compact>
-...
-</Example>
 ```
 
-But do not over-engineer this before testing real notes.
+`DataTable` additionally accepts `compact` and `lines="rows"`, `"all"`, or
+`"none"`. These control density and separators, not dimensions or placement.
 
 ---
 
@@ -1297,9 +1299,11 @@ Every engine component that can appear in a note must:
 - have a readable print representation;
 - avoid requiring client-side JavaScript unless its purpose genuinely needs it.
 
-`Grid` provides useful automatic placement and a small amount of semantic
-control such as `wide`/full-width. Notes must never manage columns with inline
-styles, pixel widths, or presentation-specific wrappers.
+`Grid` provides useful automatic placement, an optional engine-level section
+title, and a small amount of semantic control such as `wide`/full-width.
+`DataTable` provides controlled density and separator choices. Notes must never
+manage columns with inline styles, pixel widths, heading levels, or
+presentation-specific wrappers.
 
 ## 34. Source Lifecycle
 

@@ -183,7 +183,8 @@ These names and their behavior are custom to this repository:
 
 | Component | Meaning | Main options |
 | --- | --- | --- |
-| `Grid` | Allow adjacent semantic blocks to share available width | none |
+| `Grid` | Group a titled section and let its blocks share available width | optional `title` |
+| `DataTable` | Responsive semantic container for a Markdown table | `title`, `wide`, `compact`, `lines` |
 | `Definition` | Definition of a concept | `title`, `wide` |
 | `Formula` | Important mathematical relation | `title`, `wide` |
 | `Example` | Concrete application | `title`, `wide` |
@@ -197,16 +198,30 @@ These names and their behavior are custom to this repository:
 Example:
 
 ```mdx
-<Grid>
+<Grid title="Motion">
   <Definition title="Velocity">...</Definition>
   <Example>...</Example>
-  <Formula wide>$$v=\frac{d}{t}$$</Formula>
+  <DataTable title="Comparison" wide compact lines="rows">
+
+    | Quantity | Formula |
+    | --- | --- |
+    | Velocity | $v=\frac{d}{t}$ |
+
+  </DataTable>
 </Grid>
 ```
+
+`Grid title="..."` creates the section heading. Its heading level is managed by
+the engine and is deliberately not configurable by notes.
 
 `wide` is semantic guidance meaning “give this block the full available row.”
 All other column decisions belong to responsive CSS. Never encode a column
 count, percentage, or pixel width in content.
+
+`DataTable` contains an ordinary Markdown table. `compact` reduces cell padding.
+Its `lines` option accepts `"rows"` (the default), `"all"`, or `"none"`.
+These options change table density and separators without exposing manual
+dimensions or column placement.
 
 ## 6. Mermaid and SVG
 

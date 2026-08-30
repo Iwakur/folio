@@ -9,7 +9,7 @@ description: Notation, suites arithmétiques, géométriques et polynomiales.
 Une suite numérique est une liste ordonnée de nombres. Ici, le premier terme
 est $u_1$ et les rangs commencent à $1$.
 
-<Grid>
+<Grid title="Notation et conventions">
   <Definition title="Notation">
     - $n$ est le **rang** et $u_n$ la valeur du terme de rang $n$.
     - La première différence est $\Delta u_n=u_{n+1}-u_n$;
@@ -28,8 +28,7 @@ est $u_1$ et les rangs commencent à $1$.
 </Grid>
 
 
-<Grid>
-## Suiwtes arithmétiques et géométriques
+<Grid title="Suites arithmétiques et géométriques">
 
   <Definition title="Suite arithmétique">
     La différence entre deux termes consécutifs est constante :
@@ -63,19 +62,23 @@ est $u_1$ et les rangs commencent à $1$.
   </Example>
 </Grid>
 
-## Différences constantes et degré
+<Grid title="Différences constantes et degré">
+  <Note title="Principe de la méthode" wide>
+    Pour une suite polynomiale, la première ligne de différences qui devient
+    constante indique le degré du polynôme.
+  </Note>
 
-Pour une suite polynomiale, la première ligne de différences qui devient
-constante indique le degré du polynôme.
-<Grid>
+  <DataTable title="Motifs polynomiaux" wide compact lines="rows">
 
-| Différence constante | Type | Forme générale |
-| --- | --- | --- |
-| valeurs $u_n$ | constante, degré 0 | $u_n=c$ |
-| $\Delta u_n$ | linéaire, degré 1 | $u_n=an+b$ |
-| $\Delta^2u_n$ | quadratique, degré 2 | $u_n=an^2+bn+c$ |
-| $\Delta^3u_n$ | cubique, degré 3 | $u_n=an^3+bn^2+cn+d$ |
-| $\Delta^ku_n$ | polynomiale, degré $k$ | $u_n=a_kn^k+\cdots+a_0$ |
+    | Différence constante | Type | Forme générale |
+    | --- | --- | --- |
+    | valeurs $u_n$ | constante, degré 0 | $u_n=c$ |
+    | $\Delta u_n$ | linéaire, degré 1 | $u_n=an+b$ |
+    | $\Delta^2u_n$ | quadratique, degré 2 | $u_n=an^2+bn+c$ |
+    | $\Delta^3u_n$ | cubique, degré 3 | $u_n=an^3+bn^2+cn+d$ |
+    | $\Delta^ku_n$ | polynomiale, degré $k$ | $u_n=a_kn^k+\cdots+a_0$ |
+
+  </DataTable>
 
   <Example title="Carrés parfaits">
     Pour $1,4,9,16,25,\ldots$, les premières différences sont
@@ -99,11 +102,13 @@ constante indique le degré du polynôme.
   </CommonMistake>
 </Grid>
 
-<Summary>
+<Grid>
+  <Summary>
 
-1. Chercher une différence constante : elle indique une suite polynomiale.
-2. Sinon, chercher un rapport constant : il indique une suite géométrique.
-3. Une formule explicite donne directement $u_n$; une récurrence utilise les
-   termes précédents.
+  1. Chercher une différence constante : elle indique une suite polynomiale.
+  2. Sinon, chercher un rapport constant : il indique une suite géométrique.
+  3. Une formule explicite donne directement $u_n$; une récurrence utilise les
+     termes précédents.
 
-</Summary>
+  </Summary>
+</Grid>

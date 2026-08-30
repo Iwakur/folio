@@ -8,25 +8,31 @@ description: The main number sets and the relationships between them.
 
 Number sets classify numbers according to their properties.
 
-| Symbol | Name | Examples |
-| --- | --- | --- |
-| $\mathbb N$ | natural numbers | $0,1,2,3,\ldots$ |
-| $\mathbb Z$ | integers | $\ldots,-2,-1,0,1,2,\ldots$ |
-| $\mathbb D$ | finite decimals | $0.5$; $-2.75$; $10.01$ |
-| $\mathbb Q$ | rational numbers | $\frac13$; $-\frac72$; $0.5$ |
-| $\mathbb R$ | real numbers | $\pi$; $\sqrt2$; $\frac13$; $-5$ |
-| $\mathbb C$ | complex numbers | $2+3i$ |
+<Grid title="Number families">
+  <DataTable title="Main sets" wide compact lines="rows">
 
-<Formula title="Set inclusions" wide>
+    | Symbol | Name | Examples |
+    | --- | --- | --- |
+    | $\mathbb N$ | natural numbers | $0,1,2,3,\ldots$ |
+    | $\mathbb Z$ | integers | $\ldots,-2,-1,0,1,2,\ldots$ |
+    | $\mathbb D$ | finite decimals | $0.5$; $-2.75$; $10.01$ |
+    | $\mathbb Q$ | rational numbers | $\frac13$; $-\frac72$; $0.5$ |
+    | $\mathbb R$ | real numbers | $\pi$; $\sqrt2$; $\frac13$; $-5$ |
+    | $\mathbb C$ | complex numbers | $2+3i$ |
+
+  </DataTable>
+
+  <Formula title="Set inclusions" wide>
 
   $$
   \mathbb N\subset\mathbb Z\subset\mathbb D\subset
   \mathbb Q\subset\mathbb R\subset\mathbb C
   $$
 
-</Formula>
+  </Formula>
+</Grid>
 
-<Grid>
+<Grid title="Membership and inclusion">
   <Definition title="Membership">
     $x\in A$ means that the number $x$ is an **element** of set $A$.
     For example, $5\in\mathbb N$.
@@ -49,7 +55,9 @@ Number sets classify numbers according to their properties.
   </Note>
 </Grid>
 
-<Summary>
-  Memorize the inclusion chain, then the distinction between $\in$ (an element
-  belongs to a set) and $\subset$ (one set is included in another).
-</Summary>
+<Grid>
+  <Summary>
+    Memorize the inclusion chain, then the distinction between $\in$ (an element
+    belongs to a set) and $\subset$ (one set is included in another).
+  </Summary>
+</Grid>

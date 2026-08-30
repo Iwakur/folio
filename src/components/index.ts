@@ -1,5 +1,6 @@
 export { default as Arrow } from './Arrow.astro';
 export { default as CommonMistake } from './CommonMistake.astro';
+export { default as DataTable } from './DataTable.astro';
 export { default as Definition } from './Definition.astro';
 export { default as Example } from './Example.astro';
 export { default as Formula } from './Formula.astro';

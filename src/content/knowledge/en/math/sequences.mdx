@@ -9,11 +9,11 @@ description: Notation, arithmetic, geometric, and polynomial sequences.
 A number sequence is an ordered list of numbers. Here, the first term is $u_1$
 and indexing starts at $1$.
 
-<Grid>
+<Grid title="Notation and conventions">
   <Definition title="Notation">
-    $n$ is the **index** and $u_n$ is the value of the term at index $n$.
-    The first difference is $\Delta u_n=u_{n+1}-u_n$; the second is
-    $\Delta^2u_n=\Delta(\Delta u_n)$.
+    - $n$ is the **index** and $u_n$ is the value of the term at index $n$.
+    - The first difference is $\Delta u_n=u_{n+1}-u_n$.
+    - The second difference is $\Delta^2u_n=\Delta(\Delta u_n)$.
   </Definition>
 
   <Note title="Two ways to define a sequence">
@@ -27,9 +27,7 @@ and indexing starts at $1$.
   </Warning>
 </Grid>
 
-## Arithmetic and geometric sequences
-
-<Grid>
+<Grid title="Arithmetic and geometric sequences">
   <Definition title="Arithmetic sequence">
     The difference between consecutive terms is constant:
     $u_{n+1}-u_n=r$.
@@ -62,20 +60,24 @@ and indexing starts at $1$.
   </Example>
 </Grid>
 
-## Constant differences and degree
+<Grid title="Constant differences and degree">
+  <Note title="How the method works" wide>
+    For a polynomial sequence, the first row of differences that becomes
+    constant indicates the polynomial's degree.
+  </Note>
 
-For a polynomial sequence, the first row of differences that becomes constant
-indicates the polynomial's degree.
+  <DataTable title="Polynomial patterns" wide compact lines="rows">
 
-| Constant row | Type | General form |
-| --- | --- | --- |
-| values $u_n$ | constant, degree 0 | $u_n=c$ |
-| $\Delta u_n$ | linear, degree 1 | $u_n=an+b$ |
-| $\Delta^2u_n$ | quadratic, degree 2 | $u_n=an^2+bn+c$ |
-| $\Delta^3u_n$ | cubic, degree 3 | $u_n=an^3+bn^2+cn+d$ |
-| $\Delta^ku_n$ | polynomial, degree $k$ | $u_n=a_kn^k+\cdots+a_0$ |
+    | Constant row | Type | General form |
+    | --- | --- | --- |
+    | values $u_n$ | constant, degree 0 | $u_n=c$ |
+    | $\Delta u_n$ | linear, degree 1 | $u_n=an+b$ |
+    | $\Delta^2u_n$ | quadratic, degree 2 | $u_n=an^2+bn+c$ |
+    | $\Delta^3u_n$ | cubic, degree 3 | $u_n=an^3+bn^2+cn+d$ |
+    | $\Delta^ku_n$ | polynomial, degree $k$ | $u_n=a_kn^k+\cdots+a_0$ |
 
-<Grid>
+  </DataTable>
+
   <Example title="Perfect squares">
     For $1,4,9,16,25,\ldots$, the first differences are
     $3,5,7,9,\ldots$ and the second differences are always $2$.
@@ -98,10 +100,12 @@ indicates the polynomial's degree.
   </CommonMistake>
 </Grid>
 
-<Summary>
+<Grid>
+  <Summary>
 
-1. Look for a constant difference: it identifies a polynomial sequence.
-2. Otherwise, look for a constant ratio: it identifies a geometric sequence.
-3. An explicit formula gives $u_n$ directly; a recurrence uses earlier terms.
+  1. Look for a constant difference: it identifies a polynomial sequence.
+  2. Otherwise, look for a constant ratio: it identifies a geometric sequence.
+  3. An explicit formula gives $u_n$ directly; a recurrence uses earlier terms.
 
-</Summary>
+  </Summary>
+</Grid>

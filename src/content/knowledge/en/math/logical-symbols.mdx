@@ -8,22 +8,28 @@ description: Membership, quantifiers, implications, and comparisons.
 
 These symbols express mathematical statements precisely.
 
-| Symbol | Read as | Example |
-| --- | --- | --- |
-| $\in$ | belongs to | $5\in\mathbb N$ |
-| $\notin$ | does not belong to | $-2\notin\mathbb N$ |
-| $\subset$ | is a subset of | $\mathbb N\subset\mathbb Z$ |
-| $\not\subset$ | is not a subset of | $\mathbb R\not\subset\mathbb Q$ |
-| $\forall$ | for every | $\forall n\in\mathbb N$ |
-| $\exists$ | there exists | $\exists x\in\mathbb R$ |
-| $\nexists$ | there does not exist | $\nexists x\in\mathbb R:x^2=-1$ |
-| $\Rightarrow$ | implies | $x>2\Rightarrow x>1$ |
-| $\Leftrightarrow$ | if and only if | $x^2=4\Leftrightarrow x=\pm2$ |
-| $\ne$ | is not equal to | $2\ne3$ |
-| $\leq$ | is less than or equal to | $x\leq5$ |
-| $\geq$ | is greater than or equal to | $x\geq0$ |
+<Grid title="Symbol reference">
+  <DataTable wide compact lines="rows">
 
-<Grid>
+    | Symbol | Read as | Example |
+    | --- | --- | --- |
+    | $\in$ | belongs to | $5\in\mathbb N$ |
+    | $\notin$ | does not belong to | $-2\notin\mathbb N$ |
+    | $\subset$ | is a subset of | $\mathbb N\subset\mathbb Z$ |
+    | $\not\subset$ | is not a subset of | $\mathbb R\not\subset\mathbb Q$ |
+    | $\forall$ | for every | $\forall n\in\mathbb N$ |
+    | $\exists$ | there exists | $\exists x\in\mathbb R$ |
+    | $\nexists$ | there does not exist | $\nexists x\in\mathbb R:x^2=-1$ |
+    | $\Rightarrow$ | implies | $x>2\Rightarrow x>1$ |
+    | $\Leftrightarrow$ | if and only if | $x^2=4\Leftrightarrow x=\pm2$ |
+    | $\ne$ | is not equal to | $2\ne3$ |
+    | $\leq$ | is less than or equal to | $x\leq5$ |
+    | $\geq$ | is greater than or equal to | $x\geq0$ |
+
+  </DataTable>
+</Grid>
+
+<Grid title="Reading logical statements">
   <Example title="Reading a sequence definition">
     $$\forall n\in\mathbb N,\qquad u_n=2n+1$$
     reads: “For every natural number $n$, the term at index $n$ equals
@@ -47,7 +53,9 @@ These symbols express mathematical statements precisely.
   </CommonMistake>
 </Grid>
 
-<Summary>
-  The four priorities are: the chain of number sets, $x\in\mathbb R$,
-  $\forall$ (“for every”), and $\exists$ (“there exists”).
-</Summary>
+<Grid>
+  <Summary>
+    The four priorities are: the chain of number sets, $x\in\mathbb R$,
+    $\forall$ (“for every”), and $\exists$ (“there exists”).
+  </Summary>
+</Grid>

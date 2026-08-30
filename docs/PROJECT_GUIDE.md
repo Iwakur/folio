@@ -54,6 +54,7 @@ folio/
     │   ├── Warning.astro
     │   ├── CommonMistake.astro
     │   ├── Summary.astro
+    │   ├── DataTable.astro           Responsive semantic table card
     │   ├── Grid.astro                Responsive content grid
     │   ├── Arrow.astro               Simple SVG relationship
     │   ├── Mermaid.astro             Mermaid diagram renderer
@@ -61,7 +62,7 @@ folio/
     │   └── index.ts                  Components exposed to every MDX page
     ├── content/knowledge/
     │   ├── fr/math/suites.mdx        French example note
-    │   └── en/physics/newtons-laws.mdx
+    │   └── en/math/sequences.mdx     Mirrored English note
     ├── content.config.ts             Content location and frontmatter schema
     ├── layouts/KnowledgeLayout.astro Shared HTML shell
     ├── lib/navigation.ts             Folder tree to sidebar conversion

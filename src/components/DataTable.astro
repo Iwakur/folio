@@ -1,0 +1,32 @@
+---
+import Card from './Card.astro';
+
+interface Props {
+  title?: string;
+  wide?: boolean;
+  compact?: boolean;
+  lines?: 'all' | 'rows' | 'none';
+}
+
+const {
+  title,
+  wide = false,
+  compact = false,
+  lines = 'rows',
+} = Astro.props;
+
+const lineStyle = ['all', 'rows', 'none'].includes(lines) ? lines : 'rows';
+const variantClass = [
+  `has-${lineStyle}-lines`,
+  compact && 'is-compact',
+].filter(Boolean).join(' ');
+---
+<Card
+  kind="table"
+  label="Table"
+  title={title}
+  wide={wide}
+  variantClass={variantClass}
+>
+  <slot />
+</Card>
