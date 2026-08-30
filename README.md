@@ -18,12 +18,10 @@ static site in `dist/`.
 
 ## Documentation
 
-- `docs/PROJECT_GUIDE.md` explains the structure, runtime flow, commands, and
-  technologies to learn.
-- `docs/LEARNING_PATH.md` separates the minimum knowledge-author skills from the
-  complete path for maintaining the entire project.
-- `docs/SYNTAX_CONVENTIONS.md` is the authoritative reference for Markdown,
-  MDX, math, frontmatter, Mermaid, and custom Folio syntax.
-- `docs/AUTHORING.md` is the short note-writing tutorial.
-- `STATIC_SCHOOL_KNOWLEDGE_SPEC.md` is the complete product brief.
-- `AGENTS.md` contains mandatory guidance for coding agents.
+- [Project guide](docs/PROJECT_GUIDE.md) explains the structure, runtime flow,
+  commands, and technologies to learn.
+- [Learning path](docs/LEARNING_PATH.md) separates the minimum knowledge-author
+  skills from the complete path for maintaining the project.
+- [Syntax conventions](docs/SYNTAX_CONVENTIONS.md) is the authoritative
+  reference for Markdown, MDX, math, media, Mermaid, and custom Folio syntax.
+- [Agent guidance](AGENTS.md) contains mandatory instructions for coding agents.

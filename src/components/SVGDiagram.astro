@@ -1,0 +1,18 @@
+---
+interface Props {
+  caption?: string;
+  credit?: string;
+  wide?: boolean;
+}
+
+const { caption, credit, wide = false } = Astro.props;
+---
+<figure class:list={['knowledge-figure', 'knowledge-figure--svg', { 'is-wide': wide }]}>
+  <div class="knowledge-figure__media"><slot /></div>
+  {(caption || credit) && (
+    <figcaption>
+      {caption && <span>{caption}</span>}
+      {credit && <small>{credit}</small>}
+    </figcaption>
+  )}
+</figure>

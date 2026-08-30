@@ -31,9 +31,8 @@ Learn these first, in this order:
    - `Example`;
    - `Note`;
    - `Warning`;
-   - `CommonMistake`;
    - `Summary`;
-   - `Arrow` and `Mermaid` when needed.
+   - `Image`, `SVGDiagram`, and `Mermaid` when needed.
 
 4. **Mermaid, only when a note needs diagrams**
    - begin with flowcharts;
@@ -161,11 +160,12 @@ Why: Navigation construction uses ordinary JavaScript/TypeScript, and Mermaid
 requires a small browser-side script. Folio should otherwise ship as little
 client JavaScript as possible.
 
-### 9. Mermaid and SVG
+### 9. Images, Mermaid, and SVG
 
 Learn:
 
 - Mermaid diagram syntax and accessibility labels;
+- raster formats, meaningful alternative text, captions, and credits;
 - SVG `viewBox`, paths, text, scaling, and coordinate systems;
 - responsive SVG sizing;
 - print-safe strokes, colours, and contrast;

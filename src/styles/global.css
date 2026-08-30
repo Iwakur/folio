@@ -27,7 +27,7 @@
   --summary-surface: #292419;
 }
 
-* { box-sizini: border-box; }
+* { box-sizing: border-box; }
 html { background: var(--paper); color: var(--ink); }
 body { margin: 0; }
 a { color: inherit; }
@@ -70,7 +70,7 @@ p, li { max-width: 72ch; }
 .knowledge-card--formula { --card-accent: #765cb2; background: var(--formula-surface); }
 .knowledge-card--example { --card-accent: #2f708f; }
 .knowledge-card--note { --card-accent: #64736c; }
-.knowledge-card--warning, .knowledge-card--mistake { --card-accent: #b34d40; background: var(--attention-surface); }
+.knowledge-card--warning { --card-accent: #b34d40; background: var(--attention-surface); }
 .knowledge-card--summary { --card-accent: #a8761e; background: var(--summary-surface); }
 .knowledge-card--table { --card-accent: #536f7b; }
 .knowledge-card--table .knowledge-card__content { max-width: 100%; overflow-x: auto; }
@@ -83,15 +83,19 @@ p, li { max-width: 72ch; }
 .knowledge-card--table.is-compact th, .knowledge-card--table.is-compact td { padding: .28rem .42rem; }
 .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .25rem 0; }
 .diagram { max-width: 100%; margin: 1.5rem 0; overflow-x: auto; }
-.arrow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(5rem, 10rem) minmax(0, 1fr); align-items: center; gap: 1rem; margin: 1.5rem 0; text-align: center; font-weight: 750; }
-.arrow svg { width: 100%; fill: none; stroke: var(--accent); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.knowledge-figure { min-width: 0; margin: 0; break-inside: avoid; }
+.knowledge-figure.is-wide { grid-column: 1 / -1; }
+.knowledge-figure__media { max-width: 100%; overflow: auto; }
+.knowledge-figure__media > p { margin: 0; max-width: none; }
+.knowledge-figure__media img { display: block; width: 100%; height: auto; border-radius: .45rem; }
+.knowledge-figure--svg .knowledge-figure__media img { background: var(--surface); object-fit: contain; }
+.knowledge-figure figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem .15rem 0; color: var(--muted); font-size: .78rem; line-height: 1.4; }
+.knowledge-figure figcaption small { font: inherit; opacity: .8; }
 
 @media (max-width: 720px) {
   .shell { display: block; }
   .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
   .knowledge { padding: 1.25rem; }
-  .arrow { grid-template-columns: 1fr; }
-  .arrow svg { height: 2rem; transform: rotate(90deg); }
 }
 
 @page { size: A4; margin: 10mm; }
@@ -117,7 +121,10 @@ p, li { max-width: 72ch; }
   .knowledge article { max-width: none; }
   h1 { font-size: 24pt; margin-top: 0; }
   h2 { margin-top: 1.4rem; break-after: avoid; }
-  .knowledge-grid-section { margin: 5mm 0; }
+  .knowledge-grid-section { margin: 5mm 0;}
+  .knowledge-grid-section:has(> .knowledge-grid > :only-child) {
+    break-inside: avoid;
+  }
   .knowledge-grid__title { margin-bottom: 3mm; padding-bottom: 1.5mm; }
   .knowledge-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm; }
   .knowledge-card { padding: 3.5mm 4mm; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }

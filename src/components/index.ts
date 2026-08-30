@@ -1,11 +1,11 @@
-export { default as Arrow } from './Arrow.astro';
-export { default as CommonMistake } from './CommonMistake.astro';
 export { default as DataTable } from './DataTable.astro';
 export { default as Definition } from './Definition.astro';
 export { default as Example } from './Example.astro';
 export { default as Formula } from './Formula.astro';
 export { default as Grid } from './Grid.astro';
+export { default as Image } from './Image.astro';
 export { default as Mermaid } from './Mermaid.astro';
 export { default as Note } from './Note.astro';
 export { default as Summary } from './Summary.astro';
+export { default as SVGDiagram } from './SVGDiagram.astro';
 export { default as Warning } from './Warning.astro';

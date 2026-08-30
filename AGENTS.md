@@ -1,8 +1,8 @@
 # Repository guidance
 
 This repository is a static, MDX-first school knowledge base and its Astro
-rendering engine. Read `STATIC_SCHOOL_KNOWLEDGE_SPEC.md` before architectural or
-content-format changes.
+rendering engine. Read `docs/PROJECT_GUIDE.md` before architectural changes and
+`docs/SYNTAX_CONVENTIONS.md` before content-format changes.
 
 Use `docs/PROJECT_GUIDE.md` as the repository map and
 `docs/SYNTAX_CONVENTIONS.md` as the authoritative content-language contract.
@@ -29,5 +29,5 @@ and maintainers.
 - Test a representative note, not only an isolated component.
 - For layout changes, consider narrow mobile, wide desktop, overflowing math,
   unequal card lengths, and print preview.
-- Update both `docs/SYNTAX_CONVENTIONS.md` and `docs/AUTHORING.md` when the
+- Update both `docs/SYNTAX_CONVENTIONS.md` and `docs/PROJECT_GUIDE.md` when the
   public MDX vocabulary changes.

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Triangle des différences d'une suite quadratique</title>
+  <desc id="desc">Les termes 1, 4, 9, 16 et 25 donnent les premières différences 3, 5, 7 et 9, puis la deuxième différence constante 2.</desc>
+  <style>
+    .label { fill: #1e6353; font: 700 20px system-ui, sans-serif; }
+    .value { fill: #202724; font: 600 24px system-ui, sans-serif; text-anchor: middle; }
+    .guide { stroke: #aeb9b4; stroke-width: 1.5; }
+    .constant { fill: #765cb2; }
+  </style>
+  <text class="label" x="24" y="62">uₙ</text>
+  <text class="label" x="24" y="152">Δuₙ</text>
+  <text class="label" x="24" y="242">Δ²uₙ</text>
+
+  <g class="guide">
+    <path d="M150 70 215 130M280 70 215 130M280 70 345 130M410 70 345 130M410 70 475 130M540 70 475 130M540 70 605 130M670 70 605 130" />
+    <path d="M215 160 280 220M345 160 280 220M345 160 410 220M475 160 410 220M475 160 540 220M605 160 540 220" />
+  </g>
+
+  <g class="value">
+    <text x="150" y="60">1</text>
+    <text x="280" y="60">4</text>
+    <text x="410" y="60">9</text>
+    <text x="540" y="60">16</text>
+    <text x="670" y="60">25</text>
+
+    <text x="215" y="150">3</text>
+    <text x="345" y="150">5</text>
+    <text x="475" y="150">7</text>
+    <text x="605" y="150">9</text>
+
+    <text class="constant" x="280" y="240">2</text>
+    <text class="constant" x="410" y="240">2</text>
+    <text class="constant" x="540" y="240">2</text>
+  </g>
+</svg>

@@ -109,7 +109,9 @@ Allowed in normal notes:
 
 ```mdx
 <Definition>...</Definition>
-<Arrow from="Cause" to="Effect" />
+<Image caption="Observed colour change">
+  ![Blue solution after the reaction](./blue-solution.webp)
+</Image>
 ```
 
 Do not normally use:
@@ -190,9 +192,9 @@ These names and their behavior are custom to this repository:
 | `Example` | Concrete application | `title`, `wide` |
 | `Note` | Supporting information | `title`, `wide` |
 | `Warning` | High-attention warning | `title`, `wide` |
-| `CommonMistake` | Frequent misconception or error | `title`, `wide` |
 | `Summary` | Concluding synthesis | `title`, `wide` (defaults to true) |
-| `Arrow` | Simple named relationship | `from`, `to` |
+| `Image` | Raster-image figure using a Markdown image child | `caption`, `credit`, `wide` |
+| `SVGDiagram` | SVG figure using a Markdown image child | `caption`, `credit`, `wide` |
 | `Mermaid` | Text-defined diagram | `chart`, optional `label` |
 
 Example:
@@ -223,7 +225,37 @@ Its `lines` option accepts `"rows"` (the default), `"all"`, or `"none"`.
 These options change table density and separators without exposing manual
 dimensions or column placement.
 
-## 6. Mermaid and SVG
+## 6. Images, SVG, and Mermaid
+
+Store raster assets in `src/content/img/` and SVG assets in
+`src/content/svg/`. `Image` is for photographs, scans, microscopy, and detailed
+raster illustrations. `SVGDiagram` is for vector diagrams. Each wrapper
+contains exactly one ordinary Markdown image so Astro can resolve the local
+asset without an import:
+
+```mdx
+<Grid title="Experiment">
+  <Image caption="Colour at the endpoint" credit="Original photograph" wide>
+
+    ![A pale pink solution at the titration endpoint](../../../img/endpoint.webp)
+
+  </Image>
+
+  <SVGDiagram caption="Titration apparatus" wide>
+
+    ![A burette above an Erlenmeyer flask](../../../svg/titration-apparatus.svg)
+
+  </SVGDiagram>
+</Grid>
+```
+
+These example paths are relative to a note in
+`src/content/knowledge/<language>/<subject>/`. Adjust the number of `../`
+segments for deeper note folders. The Markdown alternative text is required
+and must describe the visual's meaning. `caption` and `credit` are optional
+visible text; neither replaces alternative text. `wide` spans the full grid
+row. Do not place a complete lesson in an image when its text, data, or
+mathematics can remain structured.
 
 Mermaid syntax belongs to Mermaid; only the surrounding `<Mermaid>` component
 is custom to Folio:
@@ -237,9 +269,9 @@ is custom to Folio:
 />
 ```
 
-Simple relationships should use `<Arrow>`. Repeated subject-specific visuals
-should become engine components. A truly unique inline SVG is acceptable only
-when it:
+Repeated subject-specific visuals should become engine components. Prefer an
+external SVG inside `SVGDiagram` over raw inline SVG. A truly unique inline SVG
+is acceptable only when it:
 
 - has a meaningful accessible label;
 - uses a responsive `viewBox` rather than fixed page dimensions;
@@ -268,6 +300,6 @@ removing it:
 
 1. update the engine with backward compatibility where practical;
 2. migrate existing notes;
-3. update this document and `docs/AUTHORING.md`;
+3. update this document;
 4. run `npm run check` and `npm run build`;
 5. visually check screen and print output.

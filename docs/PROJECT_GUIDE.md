@@ -1,8 +1,8 @@
 # Project guide
 
 This document explains how to understand, run, and extend Folio. Start with the
-README for the shortest introduction, then read this guide, then consult the
-full specification for product decisions.
+README for the shortest introduction, then read this guide and the authoritative
+syntax conventions.
 
 ## What the project is
 
@@ -35,13 +35,12 @@ External drafts provide context but are never required to build the site.
 folio/
 ├── AGENTS.md                         Rules for coding agents
 ├── README.md                         Short project entry point
-├── STATIC_SCHOOL_KNOWLEDGE_SPEC.md   Product and architecture specification
 ├── astro.config.mjs                  MDX, math, and static-build configuration
 ├── package.json                      Commands and JavaScript dependencies
 ├── package-lock.json                 Exact dependency resolution
 ├── tsconfig.json                     Strict TypeScript configuration
 ├── docs/
-│   ├── AUTHORING.md                  Short note-writing tutorial
+│   ├── LEARNING_PATH.md              Author and maintainer learning sequence
 │   ├── PROJECT_GUIDE.md              This architecture and operation guide
 │   └── SYNTAX_CONVENTIONS.md         Authoritative content-language reference
 └── src/
@@ -52,17 +51,20 @@ folio/
     │   ├── Example.astro
     │   ├── Note.astro
     │   ├── Warning.astro
-    │   ├── CommonMistake.astro
     │   ├── Summary.astro
     │   ├── DataTable.astro           Responsive semantic table card
     │   ├── Grid.astro                Responsive content grid
-    │   ├── Arrow.astro               Simple SVG relationship
+    │   ├── Image.astro               Responsive raster-image figure
+    │   ├── SVGDiagram.astro          Responsive SVG figure
     │   ├── Mermaid.astro             Mermaid diagram renderer
     │   ├── SidebarTree.astro         Recursive navigation UI
     │   └── index.ts                  Components exposed to every MDX page
-    ├── content/knowledge/
-    │   ├── fr/math/suites.mdx        French example note
-    │   └── en/math/sequences.mdx     Mirrored English note
+    ├── content/
+    │   ├── img/                      Raster knowledge assets
+    │   ├── svg/                      SVG knowledge assets
+    │   └── knowledge/                Canonical MDX notes
+    │       ├── fr/math/suites.mdx    French example note
+    │       └── en/math/sequences.mdx Mirrored English note
     ├── content.config.ts             Content location and frontmatter schema
     ├── layouts/KnowledgeLayout.astro Shared HTML shell
     ├── lib/navigation.ts             Folder tree to sidebar conversion
@@ -220,12 +222,9 @@ to learn for the current architecture.
 2. `docs/PROJECT_GUIDE.md` — structure and data flow.
 3. `docs/SYNTAX_CONVENTIONS.md` — content language and provenance.
 4. `docs/LEARNING_PATH.md` — authoring and whole-project learning paths.
-5. `docs/AUTHORING.md` — concise writing examples.
-6. `STATIC_SCHOOL_KNOWLEDGE_SPEC.md` — full goals, constraints, and acceptance
-   criteria.
-7. `AGENTS.md` — mandatory implementation rules for agents.
-8. `src/content/knowledge/fr/math/suites.mdx` — representative real input.
-9. `[...slug].astro`, `KnowledgeLayout.astro`, and `global.css` — the core
+5. `AGENTS.md` — mandatory implementation rules for agents.
+6. `src/content/knowledge/fr/math/suites.mdx` — representative real input.
+7. `[...slug].astro`, `KnowledgeLayout.astro`, and `global.css` — the core
    rendering path.
 
 ## Architectural boundaries
